@@ -1,0 +1,14 @@
+
+<h1>Hello {{name}} !</h1>
+<span>Enter your name: </span>
+<input type="text" placeholder="Enter here" required [(ngModel)]="name"/>
+<p>Enter your password: </p>
+<input type="password" placeholder="Enter here" required [(ngModel)]="password"/>
+<button type="submit" (click)="onSubmit()">Submit</button>
+<p>Your profile was changed {{count}} times</p>
+
+<form id="noteForm">
+  Add note:
+  <input type="text" placeholder="Write something here" #newNote>
+  <button (click)="addNewNote(newNote.value)">Add</button>
+</form>
