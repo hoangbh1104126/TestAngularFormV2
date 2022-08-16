@@ -2,15 +2,18 @@ Test
 
 <hr>
 <app-testform (newNoteEvent)="addNote($event)" [name]="name" [num]="num" #formComp></app-testform>
+<hr>
+<app-testform (newNoteEvent)="addNote($event)" [name]="name" [num]="num" #formComp></app-testform>
+<hr>
 
 <!--ngFor & ngIf-->
 <ol>
   <li *ngFor="let note of note; odd as isOdd; even as isEven">
     <ng-template [ngIf]="isOdd">
-      <span style="color: yellow">{{note}}</span>
+      <span style="color: teal">{{note}}</span>
     </ng-template>
     <ng-template [ngIf]="isEven">
-      <span style="color: yellowgreen">{{note}}</span>
+      <span style="color: maroon">{{note}}</span>
     </ng-template>
     <button (click)="deleteNote(note)">X</button>
   </li>
@@ -21,10 +24,10 @@ Test
   <ng-template ngFor let-note="$implicit" [ngForOf]="note" let-isOdd="odd" let-isEven="even">
     <li>
       <ng-template [ngIf]="isOdd">
-        <span style="color: yellow">{{note}}</span>
+        <span style="color: blue">{{note}}</span>
       </ng-template>
       <ng-template [ngIf]="isEven">
-        <span style="color: yellowgreen">{{note}}</span>
+        <span style="color: blueviolet">{{note}}</span>
       </ng-template>
       <button (click)="deleteNote(note)">X</button>
     </li>
