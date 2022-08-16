@@ -3,8 +3,8 @@
 <span>Enter your name: </span>
 <input type="text" placeholder="Enter here" required [(ngModel)]="name"/>
 <p>Enter your password: </p>
-<input type="password" placeholder="Enter here" required [(ngModel)]="password"/>
-<button type="submit" (click)="onSubmit()">Submit</button>
+<input type="password" placeholder="Enter here" required #pass value="{{password}}"/>
+<button type="submit" (click)="onSubmit(pass.value)">Submit</button>
 <p>Your profile was changed {{count}} times</p>
 
 <form id="noteForm">

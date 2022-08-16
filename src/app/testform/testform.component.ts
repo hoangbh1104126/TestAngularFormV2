@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 
 @Component({
   selector: 'app-testform',
@@ -9,10 +9,12 @@ export class TestformComponent implements OnInit {
   @Input() name !: string;
   @Input() password : string = "password";
   @Input() num : number | string | undefined;
+
   @Output() newNoteEvent = new EventEmitter<string>();
   @Output() delNoteEvent = new EventEmitter<string>();
-  @ViewChild('newNote') newNote !: ElementRef;
-  //Add @ViewChildren!!
+
+  @ViewChildren(TestformComponent) testForm !: QueryList<TestformComponent>;
+  @ViewChild('newNote', {read: ElementRef}) newNote !: ElementRef;
 
   addNewNote(value : string): void{
     if(value !== '')
@@ -32,6 +34,7 @@ export class TestformComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //this.testForm.changes.subcribe(console.log);
   }
 
   ngOnDestroy() {
@@ -39,8 +42,9 @@ export class TestformComponent implements OnInit {
     alert("Bye!");
   }
 
-  onSubmit(){
+  onSubmit(pass : string){
     let check = false;
+    this.password = pass;
     if(this.name === ''){
       alert("Enter your name first!");
       check = true;
