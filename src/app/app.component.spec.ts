@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TestCopy'`, () => {
+  it(`should have as title 'angular100days'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('TestCopy');
+    expect(app.title).toEqual('angular100days');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('TestCopy app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('angular100days app is running!');
   });
 });
